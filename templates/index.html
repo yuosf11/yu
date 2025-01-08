@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الاشتراكات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4CAF50;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>إدارة الاشتراكات</h1>
+    </header>
+    <nav>
+        <a href="/add_subscription">إضافة اشتراك جديد</a>
+        <a href="/list_subscriptions">عرض جميع الاشتراكات</a>
+        <a href="/check_subscription_ui">التحقق من الاشتراك</a>
+        <!-- تعديل الرابط ليتضمن app_key -->
+        <a href="/edit_subscription/{{ app_key }}">تعديل الاشتراك</a>
+        <a href="/error">صفحة الأخطاء</a>
+    </nav>
+    <main>
+        <p>مرحبًا بك في لوحة إدارة الاشتراكات. استخدم الروابط أعلاه لإدارة الاشتراكات الخاصة بك.</p>
+    </main>
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024</p>
+    </footer>
+</body>
+</html>

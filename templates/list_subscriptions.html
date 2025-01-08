@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الاشتراكات</title>
+</head>
+<body>
+    <h1>قائمة الاشتراكات</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>مفتاح التطبيق</th>
+                <th>اسم التطبيق</th>
+                <th>الحالة</th>
+                <th>تاريخ الانتهاء</th>
+                <th>إجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subscription in subscriptions %}
+            <tr>
+                <td>{{ subscription.app_key }}</td>
+                <td>{{ subscription.app_name }}</td>
+                <td>{{ "فعال" if subscription.active else "منتهي" }}</td>
+                <td>{{ subscription.expiry_date.strftime('%Y-%m-%d') }}</td>
+                <td>
+                    <a href="{{ url_for('edit_subscription', id=subscription.id) }}">تعديل</a> |
+                    <form action="{{ url_for('deactivate_subscription', id=subscription.id) }}" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('هل أنت متأكد من إلغاء الاشتراك؟')">إلغاء</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">الرجوع إلى الصفحة الرئيسية</a>
+</body>
+</html>
